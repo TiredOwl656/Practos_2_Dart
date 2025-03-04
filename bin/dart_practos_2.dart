@@ -1,4 +1,5 @@
 import 'game.dart';
+import 'dart:io';
 
 void main(List<String> arguments) {
   final game = Game();
@@ -15,4 +16,5 @@ void main(List<String> arguments) {
 // G3
 // I1
 // I2
+
 // Для создания досок для тестовой игры

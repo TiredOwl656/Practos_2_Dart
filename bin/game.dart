@@ -1,5 +1,6 @@
 import 'player.dart';
 import 'board.dart';
+import 'ship.dart';
 
 class Game {
   late Player player1;
@@ -28,6 +29,8 @@ class Game {
 
       if ((currentPlayer == player1 ? player2 : player1).board.allShipsSunk()) {
         print('\n${currentPlayer.name}, маладэц, ты победил!');
+        int aliveShips = countAliveShips(currentPlayer);
+        print('И у тебя осталось $aliveShips живых кораблей.');
         break;
       }
 
@@ -95,5 +98,15 @@ class Game {
         break;
       }
     }
+  }
+
+  int countAliveShips(Player player) {
+    int count = 0;
+    for (Ship ship in player.board.ships) {
+      if (!ship.sunk) {
+        count++;
+      }
+    }
+    return count;
   }
 }
